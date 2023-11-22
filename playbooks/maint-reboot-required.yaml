@@ -15,4 +15,4 @@
       telegram:
         token: '957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc'
         chat_id: -1001770439301
-        message_id: '{{ saved_msg_id }}'msg: "Reboot is required"
+        # message_id: '{{ saved_msg_id }}'msg: "Reboot is required"
