@@ -1,0 +1,22 @@
+---
+- name: Check Disk Space and Send Telegram Message
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Get Disk Space Information
+      shell: df -h /
+      register: disk_space_output
+
+    - name: Extract Used Percentage
+      set_fact:
+        used_percentage: "{{ disk_space_output.stdout_lines[1] | regex_replace('(\\s+)', ' ') | trim | split(' ')[4] }}"
+
+    - name: Send Telegram Message
+      uri:
+        url: "https://api.telegram.org/bot{{ 957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc }}/sendMessage"
+        method: POST
+        body_format: json
+        body:
+          chat_id: "{{ -1001770439301 }}"
+          text: "Disk space usage: {{ used_percentage }}"
