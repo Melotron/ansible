@@ -18,5 +18,5 @@
       community.general.telegram:
         chat_id: "-1001770439301"
         token: "957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc"
-        msg: "Reboot is required on {{ inventory_hostname }}"
+        msg: "Reboot is required on {{ ansible_hostname }}"
       when: reboot_required.stat.exists
