@@ -20,4 +20,4 @@
         body:
           chat_id: "-1001770439301"
           #text: "Disk space usage: {{ used_percentage }}"
-          text: "Disk space usage: {{ disk_space_output }}"
+          text: "Disk space usage: {{ second_line }}"
