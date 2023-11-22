@@ -5,8 +5,8 @@
 
   tasks:
     - name: Get Disk Space Information
-      shell: df -h /
-      #shell: df -h / | awk 'NR==2'
+      #shell: df -h /
+      shell: df -h | awk 'NR==2'
       register: disk_space_output
 
     - name: Extract Second Line of df Output
