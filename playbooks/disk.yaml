@@ -6,7 +6,6 @@
   tasks:
     - name: Get Disk Space Information
       shell: df -h / | awk 'NR==2 {print $4}'
-      #shell: df -h / | awk 'NR==2'
       register: disk_space_output
 
     - name: Extract Second Line of df Output
@@ -20,5 +19,4 @@
         body_format: json
         body:
           chat_id: "-1001770439301"
-          #text: "Disk space usage: {{ used_percentage }}"
           text: "Disk space left on device: {{ second_line }}"
