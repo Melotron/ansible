@@ -18,3 +18,12 @@
     #       Content-Type: application/json
     #     status_code: 204
     #   when: disk_usage.stdout[:-1]|int > 80
+    - name: Send notify to Telegram
+      community.general.telegram:
+        token: '957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc'
+        api_args:
+          chat_id: -1001770439301
+          parse_mode: "markdown"
+          text: "{"content": "Disk space on {{ inventory_hostname }} is above 80%!"}"
+          disable_web_page_preview: true
+          disable_notification: true
