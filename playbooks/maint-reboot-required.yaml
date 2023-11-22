@@ -22,5 +22,5 @@
         body:
           chat_id: "-1001770439301"
           #text: "Disk space usage: {{ used_percentage }}"
-          text: "Reboot is required on {{ inventory_hostname }}"
+          msg: "Reboot is required on {{ inventory_hostname }}"
         when: reboot_required.stat.exists
