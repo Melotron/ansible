@@ -1,27 +1,22 @@
 ---
-- name: check if system reboot is required
-  hosts: all
-  become: yes
+- name: Check if Ubuntu machine needs reboot and send Telegram notification
+  hosts: 192.168.1.10
+  become: true
+
   tasks:
-    - name: check if system reboot is required
-      become: true
+    - name: Check for reboot-required file
       stat:
         path: /var/run/reboot-required
       register: reboot_required
-    - debug:
-        msg: "Reboot is required"
+
+    - name: Display message if reboot is required
+      debug:
+        msg: "Reboot is required on {{ inventory_hostname }}"   # You can customize the message as needed
       when: reboot_required.stat.exists
 
-    - name: Extract Second Line of df Output
-      set_fact:
-        second_line: "{{ ansible_hostname }} - {{ reboot_required }}"
-
-    - name: Send Telegram Message
-      uri:
-        url: "https://api.telegram.org/bot957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc/sendMessage"
-        method: POST
-        body_format: json
-        body:
-          chat_id: "-1001770439301"
-          #text: "Disk space usage: {{ used_percentage }}"
-          text: "need to rebote: {{ second_line }}"
+    - name: Send Telegram notification if reboot is required
+      community.general.telegram:
+        chat_id: "{{ -1001770439301 }}"
+        token: "{{ 957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc }}"
+        msg: "Reboot is required on {{ inventory_hostname }}"
+      when: reboot_required.stat.exists
