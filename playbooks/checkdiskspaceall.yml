@@ -1,7 +1,7 @@
 # checkdiskspaceall.yml
 ---
 - hosts: all
-  vars_files: vault.yml
+  #vars_files: vault.yml
   become: yes
   become_method: sudo
   gather_facts: yes
