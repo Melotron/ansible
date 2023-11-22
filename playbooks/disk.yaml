@@ -10,7 +10,7 @@
 
     - name: Extract Second Line of df Output
       set_fact:
-        second_line: "{{ disk_space_output.stdout_lines }}"
+        second_line: "{{ ansible_hostname }} - {{ disk_space_output.stdout_lines }}"
 
     - name: Send Telegram Message
       uri:
