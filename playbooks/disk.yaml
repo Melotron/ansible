@@ -1,6 +1,6 @@
 ---
 - name: Check Disk Space and Send Telegram Message
-  hosts: 192.168.1.53
+  hosts: all
   become: true
 
   tasks:
