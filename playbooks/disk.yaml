@@ -14,9 +14,9 @@
 
     - name: Send Telegram Message
       uri:
-        url: "https://api.telegram.org/bot{{ 957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc }}/sendMessage"
+        url: "https://api.telegram.org/bot{{957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc}}/sendMessage"
         method: POST
         body_format: json
         body:
-          chat_id: "{{ -1001770439301 }}"
+          chat_id: "{{-1001770439301}}"
           text: "Disk space usage: {{ used_percentage }}"
