@@ -24,6 +24,6 @@
         api_args:
           chat_id: -1001770439301
           parse_mode: "markdown"
-          text: "{"content": "Disk space on {{ inventory_hostname }} is above 80%!"}"
+          text: "test"
           disable_web_page_preview: true
           disable_notification: true
