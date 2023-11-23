@@ -13,11 +13,11 @@
     - name: Send Notification to Telegram if Below 5GB
       when: available_space_gb < 5
       uri:
-        url: "https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage"
+        url: "https://api.telegram.org/bot957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc/sendMessage"
         method: POST
         body_format: json
         body:
-          chat_id: "YOUR_CHAT_ID"
+          chat_id: "-1001770439301"
           text: "Warning: Low disk space! Available space: {{ available_space_gb }}GB"
         status_code: 200
         
