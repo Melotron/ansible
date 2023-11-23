@@ -1,6 +1,7 @@
 ---
 - name: clean docker
   hosts: all
+  become: yes
   tasks:
     - name: prune non-dangling images
       community.docker.docker_prune:
