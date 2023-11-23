@@ -11,7 +11,7 @@
         available_space_gb: "{{ disk_space.stdout | regex_replace('G','') | int }}"
 
     - name: Send Notification to Telegram if Below 5GB
-      when: available_space_gb < 500
+      when: available_space_gb < 5
       uri:
         url: "https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage"
         method: POST
