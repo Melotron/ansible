@@ -1,6 +1,4 @@
-Certainly! Below is a simple Ansible playbook that checks the available disk space using the `df` command and sends a notification to Telegram if the space is below 5GB. Please replace `YOUR_BOT_TOKEN` and `YOUR_CHAT_ID` with your actual Telegram bot token and chat ID.
 
-```yaml
 ---
 - name: Check Disk Space and Notify on Telegram
   hosts: your_server
