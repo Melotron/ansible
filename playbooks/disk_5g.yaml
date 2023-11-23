@@ -1,6 +1,6 @@
 ---
 - name: Check Disk Space and Notify on Telegram
-  hosts: 192.168.1.10
+  hosts: your_server
   tasks:
     - name: Get Disk Space Information
       shell: df / --output=avail --block-size=G | tail -n 1
@@ -11,7 +11,7 @@
         available_space_gb: "{{ disk_space.stdout | regex_replace('G','') | int }}"
 
     - name: Send Notification to Telegram if Below 5GB
-      when: available_space_gb < 5
+      when: "available_space_gb | int < 5"
       uri:
         url: "https://api.telegram.org/bot957532885:AAHGKNEHBthFlWTogxjcM45k4ZmoMHC15sc/sendMessage"
         method: POST
