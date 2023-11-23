@@ -1,4 +1,3 @@
-
 ---
 - name: Check Disk Space and Notify on Telegram
   hosts: your_server
@@ -21,14 +20,4 @@
           chat_id: "YOUR_CHAT_ID"
           text: "Warning: Low disk space! Available space: {{ available_space_gb }}GB"
         status_code: 200
-```
-
-Remember to replace `your_server`, `YOUR_BOT_TOKEN`, and `YOUR_CHAT_ID` with your server information and Telegram credentials.
-
-Save the playbook in a file, for example, `check_disk_space.yml`, and run it using the following command:
-
-```bash
-ansible-playbook check_disk_space.yml
-```
-
-Make sure you have Ansible installed on the machine where you run the playbook, and the necessary Python libraries are available on the target server.
+        
