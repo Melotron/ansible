@@ -1,7 +1,7 @@
 ---
 - hosts: 192.168.1.61
 
-  become: true
+  #become: true
   tasks:
     - name: update apt packages
       apt:
