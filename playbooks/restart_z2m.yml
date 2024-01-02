@@ -2,13 +2,12 @@
 - name: Restart Docker Container
   hosts: 192.168.1.53
   tasks:
-    - name: Ensure Docker container is running
-      docker_container:
-        name: zigbee2mqtt
-        state: started
-        docker_host: unix://var/run/docker.sock
-      become: true
-
+#    - name: Ensure Docker container is running
+#      docker_container:
+#        name: zigbee2mqtt
+#        state: started
+#        docker_host: unix://var/run/docker.sock
+#      become: true
     - name: Restart Docker container
       docker_container:
         name: zigbee2mqtt
