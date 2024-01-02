@@ -6,8 +6,9 @@
       docker_container:
         name: zigbee2mqtt
         state: started
-
+        api_socket: unix://var/run/docker.sock
     - name: Restart Docker container
       docker_container:
         name: zigbee2mqtt
         state: restarted
+        api_socket: unix://var/run/docker.sock
